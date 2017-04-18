@@ -1,7 +1,13 @@
+<%# 
+  fills the appropriate title for the page.
+  fills "Microblog" if nothing is provided.
+%>
+<% @title = full_title(yield(:title)) %>
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mircoblog</title>
+    <title><%= @title %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
