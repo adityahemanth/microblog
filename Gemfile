@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use bootstrap as the default css library
+gem 'bootstrap-sass'
 # Use rubocop to analyze code
 gem 'rubocop' 
 
