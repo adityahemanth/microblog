@@ -3,12 +3,15 @@
 
 /* mixins, variables, etc. */
 
+$background: #f5f5f5;
+$gray-dark: #212121;
 $gray-medium-light: #eaeaea;
 $tangerine: #33cc88;
 
 /* universal */
 
 body {
+  background-color: $background;
   padding-top: 60px;
 }
 
@@ -25,6 +28,10 @@ textarea {
   h1 {
     margin-bottom: 10px;
   }
+}
+
+.content {
+	min-height: 800px;	
 }
 
 /* typography */
@@ -62,6 +69,10 @@ p {
 
 /* header */
 
+.navbar {
+  box-shadow: 0 1px 3px 0 rgba(27,36,50,.15);
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -72,7 +83,8 @@ p {
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: white;
+    border: 2px;
+    border-color: gray;
     text-decoration: none;
   }
 }
@@ -101,4 +113,49 @@ footer {
       margin-left: 15px;
     }
   }
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  padding: 4px;
+  margin-top: 20px;
+  width: 50%;
+}
+
+/* table */
+
+thead {
+	font-size: 1.5em;
+	background-color: $gray-dark;
+	th {
+		font-weight: 400;
+		color: white;
+	}
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+
+/* card */
+.card {
+	padding: 10px;
+	background-color: #ffffff;
+	box-shadow: 0px 2px 2px #999;
+	border-radius: 5px;
+    border: 1px solid #f5f5f5;
 }
