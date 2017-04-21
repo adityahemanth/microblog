@@ -1,0 +1,12 @@
+  	
+<!-- partial to handle rendering flash messages -->
+<% flash.each do |key, val| %>
+	<% if key == 'notice' %>
+		<p class="alert alert-info"><%= val %></p>
+	<% elsif key == 'danger' %>
+		<p class="alert alert-danger"><%= val %></p>
+	<% elsif key == 'success' %>
+		<p class="alert alert-success"><%= val %></p>
+	<% end %>
+<% end %>
+

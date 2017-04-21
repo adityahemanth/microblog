@@ -22,8 +22,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference('User.count') do
       post users_url, params: { user: { email: NEW_EMAIL, name: @user.name, password: PASSWORD, password_confirmation: '' } }
     end
-
-    assert_redirected_to user_url(User.last)
   end
 
   test "should show user" do

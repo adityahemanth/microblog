@@ -3,7 +3,7 @@
   <div class='row'>
     <div class='col-md-4 col-md-offset-4'>
       <div class='card' style='margin-top: 60px;'>
-        <h1>Sign Up!</h1>
+        <h1>Edit Profile</h1>
 
         <%= render 'shared/error_messages' %>
 
@@ -15,16 +15,12 @@
           <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
         </div>
 
-         <div class="field center">
-          <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
-        </div>
-
         <div class="field center">
-          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm Password' %>
+          <%= f.text_area :bio, class: 'form-control', placeholder: 'About You' %>
         </div>
 
         <div class="actions center">
-          <%= f.submit 'Create!', class: "btn btn-primary" %>
+          <%= f.submit 'Update Info', class: "btn btn-primary" %>
         </div>
       </div>
     </div>

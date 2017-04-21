@@ -3,6 +3,7 @@
 one:
   name: johndoe
   email: jdoe@gamil.com
+  password_digest: <%= User.digest('password') %>
 
 two:
   name: maryjane
