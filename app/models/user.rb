@@ -1,8 +1,10 @@
 class User < ApplicationRecord
 	has_secure_password
 	has_many :microposts
+	attr_accessor :remember_token
+	attr_accessor :blah
 
-	before_save { self.email = email.downcase }
+	before_save { self.name.downcase!; self.email.downcase! }
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	VALID_NAME_REGEX = /\A[\w+\-.]/i
@@ -22,4 +24,13 @@ class User < ApplicationRecord
     	BCrypt::Password.create(string, cost: cost)
 	end
 
+	def User.new_token
+		return SecureRandom.urlsafe_base64
+	end
+
+
+	def remember
+		self.remember_token = User.new_token
+		update_attribute(:remember_digest, User.digest(self.remember_token))
+	end
 end

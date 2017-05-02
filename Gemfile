@@ -40,6 +40,9 @@ gem 'bootstrap-sass'
 # Use rubocop to analyze code
 gem 'rubocop' 
 
+# Use annotate to add smart comments
+gem 'annotate'
+
 # TESTING
 # Use to test controllers
 gem 'rails-controller-testing'
