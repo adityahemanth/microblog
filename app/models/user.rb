@@ -2,7 +2,6 @@ class User < ApplicationRecord
 	has_secure_password
 	has_many :microposts
 	attr_accessor :remember_token
-	attr_accessor :blah
 
 	before_save { self.name.downcase!; self.email.downcase! }
 
@@ -33,4 +32,14 @@ class User < ApplicationRecord
 		self.remember_token = User.new_token
 		update_attribute(:remember_digest, User.digest(self.remember_token))
 	end
+
+	# Returns true if the give token matchs the digest
+	def authenticated?(remember_token)
+		BCrypt::Password.new(remember_digest).is_password?(remember_token)
+	end
+
+	# Forgets a user.
+  	def forget
+    	update_attribute(:remember_digest, nil)
+  	end
 end

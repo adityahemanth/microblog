@@ -35,11 +35,11 @@ class UsersController < ApplicationController
       if @user.save
         flash[:success] = 'User was successfully created!'
         log_in @user
-        format.html { redirect_to user_path(@user) }
-        format.json { render :show, status: :created, location: @user }
+        remember @user
+        redirect_to @user
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+      flash.now[:danger] = 'Invalid email/password combination'
+      render 'new'
       end
     end
   end
@@ -63,11 +63,8 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    log_out
+    redirect_to root_url
   end
 
   private
